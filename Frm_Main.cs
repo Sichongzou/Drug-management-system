@@ -21,7 +21,6 @@ namespace Drug_management_system
         UC_Workers uc_Workers;
         UC_Prescription uc_Prescription;
         UC_Login uc_Login;
-        UC_Reserve uc_Reserve;
         UC_Drugs uc_Drugs;
         //管理员权限主页面显示
         private void Admin_show() {
@@ -29,7 +28,6 @@ namespace Drug_management_system
             btn_toDrugs.Visible = true;
             btn_toLogin.Visible = true;
             btn_toPrescription.Visible = true;
-            btn_toReserve.Visible = true;
             btn_toSupplier.Visible = true;
             btn_toWorkers.Visible = true;
         }
@@ -39,7 +37,6 @@ namespace Drug_management_system
             btn_toDrugs.Visible = false;
             btn_toLogin.Visible = false;
             btn_toPrescription.Visible = false;
-            btn_toReserve.Visible = false;
             btn_toSupplier.Visible = false;
             btn_toWorkers.Visible = false;
         }
@@ -56,7 +53,6 @@ namespace Drug_management_system
             groupBox1.Controls.Remove(uc_Prescription);
             groupBox1.Controls.Remove(uc_Supplier);
             groupBox1.Controls.Remove(uc_Workers);
-            groupBox1.Controls.Remove(uc_Reserve);
             Admin_show();
         }
 
@@ -73,15 +69,11 @@ namespace Drug_management_system
         {
             Admin_hide();
             uc_Drugs = new UC_Drugs();
+            uc_Drugs.Width = groupBox1.Width;
+            uc_Drugs.Height = groupBox1.Height;
             groupBox1.Controls.Add(uc_Drugs);
         }
 
-        private void btn_toReserve_Click(object sender, EventArgs e)
-        {
-            Admin_hide();
-            uc_Reserve = new UC_Reserve();
-            groupBox1.Controls.Add(uc_Reserve);
-        }
 
         private void btn_toWorkers_Click(object sender, EventArgs e)
         {

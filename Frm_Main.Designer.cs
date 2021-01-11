@@ -38,7 +38,6 @@
             this.btn_toCustomer = new System.Windows.Forms.Button();
             this.btn_toPrescription = new System.Windows.Forms.Button();
             this.btn_toWorkers = new System.Windows.Forms.Button();
-            this.btn_toReserve = new System.Windows.Forms.Button();
             this.btn_toDrugs = new System.Windows.Forms.Button();
             this.btn_toSupplier = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -104,7 +103,6 @@
             this.groupBox1.Controls.Add(this.btn_toCustomer);
             this.groupBox1.Controls.Add(this.btn_toPrescription);
             this.groupBox1.Controls.Add(this.btn_toWorkers);
-            this.groupBox1.Controls.Add(this.btn_toReserve);
             this.groupBox1.Controls.Add(this.btn_toDrugs);
             this.groupBox1.Controls.Add(this.btn_toSupplier);
             this.groupBox1.Location = new System.Drawing.Point(0, 143);
@@ -115,7 +113,7 @@
             // 
             // btn_toLogin
             // 
-            this.btn_toLogin.Location = new System.Drawing.Point(1162, 404);
+            this.btn_toLogin.Location = new System.Drawing.Point(858, 322);
             this.btn_toLogin.Name = "btn_toLogin";
             this.btn_toLogin.Size = new System.Drawing.Size(134, 52);
             this.btn_toLogin.TabIndex = 7;
@@ -125,7 +123,7 @@
             // 
             // btn_toCustomer
             // 
-            this.btn_toCustomer.Location = new System.Drawing.Point(869, 322);
+            this.btn_toCustomer.Location = new System.Drawing.Point(858, 170);
             this.btn_toCustomer.Name = "btn_toCustomer";
             this.btn_toCustomer.Size = new System.Drawing.Size(134, 52);
             this.btn_toCustomer.TabIndex = 5;
@@ -152,16 +150,6 @@
             this.btn_toWorkers.Text = "职工管理";
             this.btn_toWorkers.UseVisualStyleBackColor = true;
             this.btn_toWorkers.Click += new System.EventHandler(this.btn_toWorkers_Click);
-            // 
-            // btn_toReserve
-            // 
-            this.btn_toReserve.Location = new System.Drawing.Point(869, 170);
-            this.btn_toReserve.Name = "btn_toReserve";
-            this.btn_toReserve.Size = new System.Drawing.Size(134, 52);
-            this.btn_toReserve.TabIndex = 2;
-            this.btn_toReserve.Text = "库存管理";
-            this.btn_toReserve.UseVisualStyleBackColor = true;
-            this.btn_toReserve.Click += new System.EventHandler(this.btn_toReserve_Click);
             // 
             // btn_toDrugs
             // 
@@ -216,7 +204,6 @@
         private System.Windows.Forms.Button btn_toCustomer;
         private System.Windows.Forms.Button btn_toPrescription;
         private System.Windows.Forms.Button btn_toWorkers;
-        private System.Windows.Forms.Button btn_toReserve;
         private System.Windows.Forms.Button btn_toDrugs;
         private System.Windows.Forms.Button btn_toSupplier;
     }
