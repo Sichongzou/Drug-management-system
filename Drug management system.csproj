@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bean\Drugs.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="Frm_Main.cs">
       <SubType>Form</SubType>
