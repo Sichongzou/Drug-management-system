@@ -1,14 +1,15 @@
+H:\Drug management system\Drug management system\bin\Debug\Drug management system.exe.config
+H:\Drug management system\Drug management system\bin\Debug\Drug management system.exe
+H:\Drug management system\Drug management system\bin\Debug\Drug management system.pdb
+H:\Drug management system\Drug management system\obj\Debug\Drug management system.csprojAssemblyReference.cache
 H:\Drug management system\Drug management system\obj\Debug\Drug_management_system.Frm_Main.resources
 H:\Drug management system\Drug management system\obj\Debug\Drug_management_system.Properties.Resources.resources
 H:\Drug management system\Drug management system\obj\Debug\Drug_management_system.UC_Customer.resources
+H:\Drug management system\Drug management system\obj\Debug\Drug_management_system.UC_Drugs.resources
+H:\Drug management system\Drug management system\obj\Debug\Drug_management_system.UC_Prescription.resources
 H:\Drug management system\Drug management system\obj\Debug\Drug_management_system.UC_Supplier.resources
 H:\Drug management system\Drug management system\obj\Debug\Drug_management_system.UC_Workers.resources
 H:\Drug management system\Drug management system\obj\Debug\Drug management system.csproj.GenerateResource.cache
 H:\Drug management system\Drug management system\obj\Debug\Drug management system.csproj.CoreCompileInputs.cache
-H:\Drug management system\Drug management system\bin\Debug\Drug management system.exe.config
-H:\Drug management system\Drug management system\bin\Debug\Drug management system.exe
-H:\Drug management system\Drug management system\bin\Debug\Drug management system.pdb
 H:\Drug management system\Drug management system\obj\Debug\Drug management system.exe
 H:\Drug management system\Drug management system\obj\Debug\Drug management system.pdb
-H:\Drug management system\Drug management system\obj\Debug\Drug management system.csprojAssemblyReference.cache
-H:\Drug management system\Drug management system\obj\Debug\Drug_management_system.UC_Drugs.resources

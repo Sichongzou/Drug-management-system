@@ -35,7 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_toLogin = new System.Windows.Forms.Button();
-            this.btn_toCustomer = new System.Windows.Forms.Button();
             this.btn_toPrescription = new System.Windows.Forms.Button();
             this.btn_toWorkers = new System.Windows.Forms.Button();
             this.btn_toDrugs = new System.Windows.Forms.Button();
@@ -100,7 +99,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btn_toLogin);
-            this.groupBox1.Controls.Add(this.btn_toCustomer);
             this.groupBox1.Controls.Add(this.btn_toPrescription);
             this.groupBox1.Controls.Add(this.btn_toWorkers);
             this.groupBox1.Controls.Add(this.btn_toDrugs);
@@ -113,7 +111,7 @@
             // 
             // btn_toLogin
             // 
-            this.btn_toLogin.Location = new System.Drawing.Point(858, 322);
+            this.btn_toLogin.Location = new System.Drawing.Point(849, 170);
             this.btn_toLogin.Name = "btn_toLogin";
             this.btn_toLogin.Size = new System.Drawing.Size(134, 52);
             this.btn_toLogin.TabIndex = 7;
@@ -121,19 +119,9 @@
             this.btn_toLogin.UseVisualStyleBackColor = true;
             this.btn_toLogin.Click += new System.EventHandler(this.btn_toLogin_Click);
             // 
-            // btn_toCustomer
-            // 
-            this.btn_toCustomer.Location = new System.Drawing.Point(858, 170);
-            this.btn_toCustomer.Name = "btn_toCustomer";
-            this.btn_toCustomer.Size = new System.Drawing.Size(134, 52);
-            this.btn_toCustomer.TabIndex = 5;
-            this.btn_toCustomer.Text = "客户管理";
-            this.btn_toCustomer.UseVisualStyleBackColor = true;
-            this.btn_toCustomer.Click += new System.EventHandler(this.btn_toCustomer_Click);
-            // 
             // btn_toPrescription
             // 
-            this.btn_toPrescription.Location = new System.Drawing.Point(658, 322);
+            this.btn_toPrescription.Location = new System.Drawing.Point(455, 316);
             this.btn_toPrescription.Name = "btn_toPrescription";
             this.btn_toPrescription.Size = new System.Drawing.Size(134, 52);
             this.btn_toPrescription.TabIndex = 4;
@@ -143,7 +131,7 @@
             // 
             // btn_toWorkers
             // 
-            this.btn_toWorkers.Location = new System.Drawing.Point(455, 322);
+            this.btn_toWorkers.Location = new System.Drawing.Point(658, 316);
             this.btn_toWorkers.Name = "btn_toWorkers";
             this.btn_toWorkers.Size = new System.Drawing.Size(134, 52);
             this.btn_toWorkers.TabIndex = 3;
@@ -201,7 +189,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_toLogin;
-        private System.Windows.Forms.Button btn_toCustomer;
         private System.Windows.Forms.Button btn_toPrescription;
         private System.Windows.Forms.Button btn_toWorkers;
         private System.Windows.Forms.Button btn_toDrugs;

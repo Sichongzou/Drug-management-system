@@ -29,8 +29,16 @@ namespace Drug_management_system
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // UC_Prescription
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "UC_Prescription";
+            this.Size = new System.Drawing.Size(989, 531);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

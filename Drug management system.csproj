@@ -116,6 +116,9 @@
     <EmbeddedResource Include="UC_Drugs.resx">
       <DependentUpon>UC_Drugs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_Prescription.resx">
+      <DependentUpon>UC_Prescription.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_Supplier.resx">
       <DependentUpon>UC_Supplier.cs</DependentUpon>
     </EmbeddedResource>

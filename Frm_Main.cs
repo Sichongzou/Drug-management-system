@@ -24,7 +24,6 @@ namespace Drug_management_system
         UC_Drugs uc_Drugs;
         //管理员权限主页面显示
         private void Admin_show() {
-            btn_toCustomer.Visible = true;
             btn_toDrugs.Visible = true;
             btn_toLogin.Visible = true;
             btn_toPrescription.Visible = true;
@@ -33,7 +32,6 @@ namespace Drug_management_system
         }
         //管理员权限主界面隐藏
         private void Admin_hide() {
-            btn_toCustomer.Visible = false;
             btn_toDrugs.Visible = false;
             btn_toLogin.Visible = false;
             btn_toPrescription.Visible = false;
