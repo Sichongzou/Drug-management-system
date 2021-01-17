@@ -1,16 +1,17 @@
-﻿namespace Drug_management_system
+﻿
+namespace Drug_management_system
 {
     partial class Frm_Login
     {
         /// <summary>
-        /// 必需的设计器变量。
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// 清理所有正在使用的资源。
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,91 +21,124 @@
             base.Dispose(disposing);
         }
 
-        #region Windows 窗体设计器生成的代码
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// 设计器支持所需的方法 - 不要修改
-        /// 使用代码编辑器修改此方法的内容。
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Button1 = new Sunny.UI.UIButton();
+            this.uiLabel1 = new Sunny.UI.UILabel();
+            this.txt_userName = new Sunny.UI.UITextBox();
+            this.Button2 = new Sunny.UI.UIButton();
+            this.uiLabel2 = new Sunny.UI.UILabel();
+            this.txt_userPassword = new Sunny.UI.UITextBox();
             this.SuspendLayout();
             // 
-            // button7
+            // Button1
             // 
-            this.button7.Location = new System.Drawing.Point(295, 268);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(113, 38);
-            this.button7.TabIndex = 16;
-            this.button7.Text = "处方管理";
-            this.button7.UseVisualStyleBackColor = true;
+            this.Button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Button1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.Button1.Location = new System.Drawing.Point(142, 204);
+            this.Button1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.Button1.Name = "Button1";
+            this.Button1.Size = new System.Drawing.Size(95, 37);
+            this.Button1.TabIndex = 12;
+            this.Button1.Text = "登录";
+            this.Button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
-            // button6
+            // uiLabel1
             // 
-            this.button6.Location = new System.Drawing.Point(44, 268);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(113, 38);
-            this.button6.TabIndex = 15;
-            this.button6.Text = "处方管理";
-            this.button6.UseVisualStyleBackColor = true;
+            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel1.Location = new System.Drawing.Point(115, 63);
+            this.uiLabel1.Name = "uiLabel1";
+            this.uiLabel1.Size = new System.Drawing.Size(86, 27);
+            this.uiLabel1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel1.TabIndex = 13;
+            this.uiLabel1.Text = "账号：";
+            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // button5
+            // txt_userName
             // 
-            this.button5.Location = new System.Drawing.Point(568, 120);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 38);
-            this.button5.TabIndex = 14;
-            this.button5.Text = "库存管理";
-            this.button5.UseVisualStyleBackColor = true;
+            this.txt_userName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_userName.FillColor = System.Drawing.Color.White;
+            this.txt_userName.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.txt_userName.Location = new System.Drawing.Point(220, 56);
+            this.txt_userName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_userName.Maximum = 2147483647D;
+            this.txt_userName.Minimum = -2147483648D;
+            this.txt_userName.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txt_userName.Name = "txt_userName";
+            this.txt_userName.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_userName.Size = new System.Drawing.Size(140, 34);
+            this.txt_userName.TabIndex = 14;
             // 
-            // button4
+            // Button2
             // 
-            this.button4.Location = new System.Drawing.Point(295, 120);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 38);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "药品管理";
-            this.button4.UseVisualStyleBackColor = true;
+            this.Button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Button2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.Button2.Location = new System.Drawing.Point(333, 204);
+            this.Button2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.Button2.Name = "Button2";
+            this.Button2.Size = new System.Drawing.Size(95, 37);
+            this.Button2.TabIndex = 15;
+            this.Button2.Text = "退出";
+            this.Button2.Click += new System.EventHandler(this.Button2_Click_1);
             // 
-            // button3
+            // uiLabel2
             // 
-            this.button3.Location = new System.Drawing.Point(44, 120);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 38);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "供货商管理";
-            this.button3.UseVisualStyleBackColor = true;
+            this.uiLabel2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel2.Location = new System.Drawing.Point(115, 124);
+            this.uiLabel2.Name = "uiLabel2";
+            this.uiLabel2.Size = new System.Drawing.Size(86, 27);
+            this.uiLabel2.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel2.TabIndex = 16;
+            this.uiLabel2.Text = "密码：";
+            this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txt_userPassword
+            // 
+            this.txt_userPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_userPassword.FillColor = System.Drawing.Color.White;
+            this.txt_userPassword.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.txt_userPassword.Location = new System.Drawing.Point(220, 117);
+            this.txt_userPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_userPassword.Maximum = 2147483647D;
+            this.txt_userPassword.Minimum = -2147483648D;
+            this.txt_userPassword.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txt_userPassword.Name = "txt_userPassword";
+            this.txt_userPassword.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_userPassword.Size = new System.Drawing.Size(140, 34);
+            this.txt_userPassword.TabIndex = 15;
             // 
             // Frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 473);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(559, 307);
+            this.Controls.Add(this.txt_userPassword);
+            this.Controls.Add(this.uiLabel2);
+            this.Controls.Add(this.Button2);
+            this.Controls.Add(this.txt_userName);
+            this.Controls.Add(this.uiLabel1);
+            this.Controls.Add(this.Button1);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(94)))));
             this.Name = "Frm_Login";
-            this.Text = "Form1";
+            this.Text = "登录信息";
             this.Load += new System.EventHandler(this.Frm_Login_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private Sunny.UI.UIButton Button1;
+        private Sunny.UI.UILabel uiLabel1;
+        private Sunny.UI.UITextBox txt_userName;
+        private Sunny.UI.UIButton Button2;
+        private Sunny.UI.UILabel uiLabel2;
+        private Sunny.UI.UITextBox txt_userPassword;
     }
 }
-

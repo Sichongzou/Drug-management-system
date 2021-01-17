@@ -226,37 +226,50 @@ namespace Drug_management_system
                         break;
                     }
                 }
-                string strsql;
-                DataAccess data = new DataAccess();
-                DataSet ds;
-                strsql = "select WID,WName,WAge,WPhone,WEdu,WAddress,WSex,WSalary,UserName from Workers Where WID="+selectWid;
-                data.Datacon();
-                ds = data.GetDataset(strsql);
-                Wid = ds.Tables[0].Rows[0][0].ToString();
-                txt_wName.Text= ds.Tables[0].Rows[0][1].ToString();
-                txt_wAge.Text= ds.Tables[0].Rows[0][2].ToString();
-                txt_wPhone.Text= ds.Tables[0].Rows[0][3].ToString();
-                txt_wEdu.Text= ds.Tables[0].Rows[0][4].ToString();
-                txt_wAddress.Text= ds.Tables[0].Rows[0][5].ToString();
-                cbo_wSex.Text= ds.Tables[0].Rows[0][6].ToString();
-                txt_wSalary.Text= ds.Tables[0].Rows[0][7].ToString();
-                UserName = ds.Tables[0].Rows[0][8].ToString();
-                txt_UserName.Text= ds.Tables[0].Rows[0][8].ToString();
-                //二次构造SQL语句查询对应密码
-                strsql = "select UserPassword from Login Where UserName = '" + txt_UserName.Text+"'";
-                ds = data.GetDataset(strsql);
-                txt_Password.Text = ds.Tables[0].Rows[0][0].ToString();
-                //放入头像 使用文件流方式读取Image.FromFile()会导致文件流一直开启，文件被锁定
-                FileStream fs = new FileStream(myFilePath + Wid + ".png", FileMode.Open, FileAccess.Read);
-                int byteLength = (int)fs.Length;
-                byte[] fileBytes = new byte[byteLength];
-                fs.Read(fileBytes, 0, byteLength);
-                //关闭文件流 解除文件锁定
-                fs.Close();
-                pictureBox1.Image = Image.FromStream(new MemoryStream(fileBytes));
-                //解锁修改 和 删除按钮
-                btn_del.Enabled = true;
-                btn_reivse.Enabled = true;
+                if (selectWid != "")
+                {
+                    string strsql;
+                    DataAccess data = new DataAccess();
+                    DataSet ds;
+                    strsql = "select WID,WName,WAge,WPhone,WEdu,WAddress,WSex,WSalary,UserName from Workers Where WID=" + selectWid;
+                    data.Datacon();
+                    ds = data.GetDataset(strsql);
+                    Wid = ds.Tables[0].Rows[0][0].ToString();
+                    txt_wName.Text = ds.Tables[0].Rows[0][1].ToString();
+                    txt_wAge.Text = ds.Tables[0].Rows[0][2].ToString();
+                    txt_wPhone.Text = ds.Tables[0].Rows[0][3].ToString();
+                    txt_wEdu.Text = ds.Tables[0].Rows[0][4].ToString();
+                    txt_wAddress.Text = ds.Tables[0].Rows[0][5].ToString();
+                    cbo_wSex.Text = ds.Tables[0].Rows[0][6].ToString();
+                    txt_wSalary.Text = ds.Tables[0].Rows[0][7].ToString();
+                    UserName = ds.Tables[0].Rows[0][8].ToString();
+                    txt_UserName.Text = ds.Tables[0].Rows[0][8].ToString();
+                    //二次构造SQL语句查询对应密码
+                    strsql = "select UserPassword from Login Where UserName = '" + txt_UserName.Text + "'";
+                    ds = data.GetDataset(strsql);
+                    txt_Password.Text = ds.Tables[0].Rows[0][0].ToString();
+                    //放入头像 使用文件流方式读取Image.FromFile()会导致文件流一直开启，文件被锁定
+                    FileStream fs = new FileStream(myFilePath + Wid + ".png", FileMode.Open, FileAccess.Read);
+                    int byteLength = (int)fs.Length;
+                    byte[] fileBytes = new byte[byteLength];
+                    fs.Read(fileBytes, 0, byteLength);
+                    //关闭文件流 解除文件锁定
+                    fs.Close();
+                    pictureBox1.Image = Image.FromStream(new MemoryStream(fileBytes));
+                    //解锁修改 和 删除按钮
+                    btn_del.Enabled = true;
+                    btn_reivse.Enabled = true;
+                    //向dataGridView2添加数据
+                    strsql = "select PID AS 处方编号,CName AS 客户姓名,PDate AS 开方日期 from Prescription,Customer Where Customer.CID=Prescription.CID and WID=" + Wid;
+                    ds = data.GetDataset(strsql);
+                    //处理dataGridView2的列界面
+                    dataGridView2.DataSource = ds.Tables[0];
+                    //避免无数据时修改属性出现bug
+                    if (dataGridView2.Columns.Count > 1)
+                    {
+                        dataGridView2.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                }
             }
         }
 
@@ -282,6 +295,11 @@ namespace Drug_management_system
                 //删除头像图片
                 File.Delete(myFilePath + Wid + ".png");
             }
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void button2_Click_1(object sender, EventArgs e)

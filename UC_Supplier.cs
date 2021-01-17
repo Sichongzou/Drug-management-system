@@ -220,5 +220,7 @@ namespace Drug_management_system
                 else { txt_log.Text += DateTime.Now.ToString() + " :未能成功删除数据\r\n"; }
             }
         }
+
+        
     }
 }

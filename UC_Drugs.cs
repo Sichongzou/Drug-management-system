@@ -15,10 +15,11 @@ namespace Drug_management_system
     public partial class UC_Drugs : UserControl
     {
         TreeNode treeNodeFather;
-        Drugs drugs=null;
+        Drug drugs=null;
         public UC_Drugs()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
         }
         public void findAllDrugsByTree() {
             //刷新树状图
@@ -72,7 +73,7 @@ namespace Drug_management_system
                     btn_add.Enabled = false;
                     btn_del.Enabled = true;
                     //实例化
-                    drugs = new Drugs();
+                    drugs = new Drug();
                     drugs.Did =Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
                     drugs.DName = ds.Tables[0].Rows[0][1].ToString();
                     drugs.DExplain = ds.Tables[0].Rows[0][2].ToString();
@@ -136,7 +137,7 @@ namespace Drug_management_system
                 btn_add.Enabled = false;
                 cbo_sName.Items.Clear();
             }
-            if (drugs != null && tabControl1.SelectedTab == tabPage1)
+            if (drugs != null && tabControl1.SelectedTab == tabPage3)
             {
                 btn_del.Enabled = true;
             }
@@ -168,7 +169,7 @@ namespace Drug_management_system
                     btn_revise.Enabled = false;
                 }
             }
-            if (tabControl1.SelectedTab == tabPage1)
+            if (tabControl1.SelectedTab == tabPage3)
             {
                 if (drugs != null) { 
                     lbl_dName.Text = drugs.DName.ToString();
@@ -299,6 +300,16 @@ namespace Drug_management_system
             drugs.DPrice =Convert.ToSingle(txt_reDPrice.Text);
             drugs.DCost = Convert.ToSingle(txt_reCost.Text);
             tabControl1_Click(sender,e);
+        }
+
+        private void cbo_addStock_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Drug_management_system.bean
 {
     //药品实例类
-    class Drugs
+    class Drug
     {
         private string sName;//供货商名字
         private int did;//药物ID
