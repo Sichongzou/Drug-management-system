@@ -155,6 +155,7 @@ namespace Drug_management_system
             this.treeView1.Style = Sunny.UI.UIStyle.Custom;
             this.treeView1.TabIndex = 20;
             this.treeView1.Text = "uiTreeView1";
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.Click += new System.EventHandler(this.treeView1_Click);
             // 
             // tabControl1
@@ -384,7 +385,7 @@ namespace Drug_management_system
             this.tabPage2.Controls.Add(this.uiGroupBox2);
             this.tabPage2.Location = new System.Drawing.Point(0, 40);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1082, 227);
+            this.tabPage2.Size = new System.Drawing.Size(1082, 422);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "添加新药品";
             // 
@@ -570,7 +571,7 @@ namespace Drug_management_system
             this.tabPage3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabPage3.Location = new System.Drawing.Point(0, 40);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1082, 227);
+            this.tabPage3.Size = new System.Drawing.Size(1082, 422);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "药品管理";
             // 

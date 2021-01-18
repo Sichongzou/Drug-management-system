@@ -17,12 +17,43 @@ namespace Drug_management_system
     {
         string Wid,UserName;
         OpenFileDialog fileDialog = new OpenFileDialog();
-        string filePath;
+        string filePath="";
         string myFilePath= Application.StartupPath.ToString()+"\\Picture\\";
         public UC_Workers()
         {
             InitializeComponent();
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
+        }
+        private void rivise_message() {
+            string strsql;
+            DataAccess data = new DataAccess();
+            DataSet ds;
+            strsql = "select WID,WName,WAge,WPhone,WEdu,WAddress,WSex,WSalary,UserName from Workers Where WID=" + Wid;
+            data.Datacon();
+            ds = data.GetDataset(strsql);
+            Wid = ds.Tables[0].Rows[0][0].ToString();
+            txt_wName.Text = ds.Tables[0].Rows[0][1].ToString();
+            txt_wAge.Text = ds.Tables[0].Rows[0][2].ToString();
+            txt_wPhone.Text = ds.Tables[0].Rows[0][3].ToString();
+            txt_wEdu.Text = ds.Tables[0].Rows[0][4].ToString();
+            txt_wAddress.Text = ds.Tables[0].Rows[0][5].ToString();
+            cbo_wSex.Text = ds.Tables[0].Rows[0][6].ToString();
+            txt_wSalary.Text = ds.Tables[0].Rows[0][7].ToString();
+            UserName = ds.Tables[0].Rows[0][8].ToString();
+            txt_UserName.Text = ds.Tables[0].Rows[0][8].ToString();
+            //二次构造SQL语句查询对应密码
+            strsql = "select UserPassword from Login Where UserName = '" + txt_UserName.Text + "'";
+            ds = data.GetDataset(strsql);
+            txt_Password.Text = ds.Tables[0].Rows[0][0].ToString();
+            //放入头像 使用文件流方式读取Image.FromFile()会导致文件流一直开启，文件被锁定
+            //读取文件流
+            FileStream fs = new FileStream(myFilePath + Wid + ".png", FileMode.Open, FileAccess.Read);
+            int byteLength = (int)fs.Length;
+            byte[] fileBytes = new byte[byteLength];
+            fs.Read(fileBytes, 0, byteLength);
+            //关闭文件流 解除文件锁定
+            fs.Close();
+            pictureBox1.Image = Image.FromStream(new MemoryStream(fileBytes));
         }
         private void findAllDoctor() {
             string strsql;
@@ -90,6 +121,7 @@ namespace Drug_management_system
             txt_Password.Text = "";
             txt_UserName.Text = "";
             pictureBox1.Image = null;
+            dataGridView2.DataSource = null;
         }
 
         private void btn_reivse_Click(object sender, EventArgs e)
@@ -114,6 +146,7 @@ namespace Drug_management_system
             else
             {
                 btn_reivse.Text = "修改职工信息";
+                btn_add.Enabled = true;
                 btn_safe.Enabled = false;
                 btn_del.Enabled = true;
                 btn_refresh.Enabled = true;
@@ -128,35 +161,8 @@ namespace Drug_management_system
                 txt_Password.ReadOnly = true;
                 txt_UserName.ReadOnly = true;
                 //防止用户修改了信息 进行重新查询赋值
-                string strsql;
-                DataAccess data = new DataAccess();
-                DataSet ds;
-                strsql = "select WID,WName,WAge,WPhone,WEdu,WAddress,WSex,WSalary,UserName from Workers Where WID=" + Wid;
-                data.Datacon();
-                ds = data.GetDataset(strsql);
-                Wid = ds.Tables[0].Rows[0][0].ToString();
-                txt_wName.Text = ds.Tables[0].Rows[0][1].ToString();
-                txt_wAge.Text = ds.Tables[0].Rows[0][2].ToString();
-                txt_wPhone.Text = ds.Tables[0].Rows[0][3].ToString();
-                txt_wEdu.Text = ds.Tables[0].Rows[0][4].ToString();
-                txt_wAddress.Text = ds.Tables[0].Rows[0][5].ToString();
-                cbo_wSex.Text = ds.Tables[0].Rows[0][6].ToString();
-                txt_wSalary.Text = ds.Tables[0].Rows[0][7].ToString();
-                UserName= ds.Tables[0].Rows[0][8].ToString();
-                txt_UserName.Text = ds.Tables[0].Rows[0][8].ToString();
-                //二次构造SQL语句查询对应密码
-                strsql = "select UserPassword from Login Where UserName = '" + txt_UserName.Text + "'";
-                ds = data.GetDataset(strsql);
-                txt_Password.Text = ds.Tables[0].Rows[0][0].ToString();
-                //放入头像 使用文件流方式读取Image.FromFile()会导致文件流一直开启，文件被锁定
-                //读取文件流
-                FileStream fs = new FileStream(myFilePath + Wid + ".png", FileMode.Open, FileAccess.Read);
-                int byteLength = (int)fs.Length;
-                byte[] fileBytes = new byte[byteLength];
-                fs.Read(fileBytes, 0, byteLength);
-                //关闭文件流 解除文件锁定
-                fs.Close();
-                pictureBox1.Image = Image.FromStream(new MemoryStream(fileBytes));
+                Thread thread = new Thread(new ThreadStart(rivise_message));
+                thread.Start();
 
             }
         }
@@ -186,7 +192,11 @@ namespace Drug_management_system
                 //构造图片文件名
                 string wid = ds.Tables[0].Rows[0][0].ToString() + ".png";
                 //头像本地处理
-                File.Copy(filePath, myFilePath + wid, true);//三个参数分别是源文件路径，存储路径，若存储路径有相同文件是否替换
+                if (filePath != "")
+                {
+                    File.Copy(filePath, myFilePath + wid, true);//三个参数分别是源文件路径，存储路径，若存储路径有相同文件是否替换
+                }
+                btn_add.Text = "新建职工";
             }
             else {
                 //这里写修改部分
@@ -200,8 +210,27 @@ namespace Drug_management_system
                 strsql = "update Login set UserName='" + txt_UserName.Text + "',UserPassword='"+txt_Password.Text+"' Where UserName='"+UserName+"'";
                 data.SqlExec(strsql);
                 //修改图片
-                File.Copy(filePath, myFilePath + Wid+".png", true);//三个参数分别是源文件路径，存储路径，若存储路径有相同文件是否替换
+                if (filePath != "") { 
+                    File.Copy(filePath, myFilePath + Wid+".png", true);//三个参数分别是源文件路径，存储路径，若存储路径有相同文件是否替换
+                }
+                btn_reivse.Text = "修改职工信息";
             }
+            //刷新
+            btn_add.Enabled = true;
+            btn_safe.Enabled = false;
+            btn_del.Enabled = true;
+            btn_refresh.Enabled = true;
+            btn_SelectPhoto.Enabled = false;
+            txt_wName.ReadOnly = true;
+            txt_wAge.ReadOnly = true;
+            txt_wAddress.ReadOnly = true;
+            txt_wPhone.ReadOnly = true;
+            cbo_wSex.Enabled = false;
+            txt_wSalary.ReadOnly = true;
+            txt_wEdu.ReadOnly = true;
+            txt_Password.ReadOnly = true;
+            txt_UserName.ReadOnly = true;
+            findAllDoctor();
         }
 
         private void UC_Workers_Load(object sender, EventArgs e)
@@ -280,7 +309,7 @@ namespace Drug_management_system
 
         private void btn_del_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("警告：您正在删除:" + txt_wName + "，这是不可逆的，是否继续?", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dr = MessageBox.Show("警告：您正在删除:" + txt_wName.Text + "，这是不可逆的，是否继续?", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dr.ToString() == "OK")
             {
                 string strsql;
@@ -294,12 +323,71 @@ namespace Drug_management_system
                 data.SqlExec(strsql);
                 //删除头像图片
                 File.Delete(myFilePath + Wid + ".png");
+                txt_wName.Text = "";
+                txt_wAge.Text = "";
+                txt_wAddress.Text = "";
+                txt_wPhone.Text = "";
+                cbo_wSex.Text = "";
+                txt_wSalary.Text = "";
+                txt_wEdu.Text = "";
+                txt_Password.Text = "";
+                txt_UserName.Text = "";
+                pictureBox1.Image = null;
+                dataGridView2.DataSource = null;
+                findAllDoctor();
             }
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void uiButton1_Click(object sender, EventArgs e)
+        {
+            int i;
+            string pid = "";
+            for (i = 0; i < dataGridView2.Rows.Count; i++)
+            {
+                if (dataGridView2.Rows[i].Selected)
+                {
+                    pid = dataGridView2.Rows[i].Cells[0].Value.ToString();
+                    break;
+                }
+            }
+            if (i == dataGridView2.Rows.Count)
+            {
+                MessageBox.Show("当前未选中行，请先选中行！");
+                return;
+            }
+            string strsql, content;
+            DataAccess data = new DataAccess();
+            data.Datacon();
+            DataSet ds;
+            content = "此处方包含内容如下：\r\n";
+            //查询处方内容表中的所有PID订单
+            strsql = "Select DID,PcNumber from Prescription_content where pid=" + pid;
+            ds = data.GetDataset(strsql);
+            //通过DID去药品表中寻找药品名称 对应数量构造字符串
+            DataSet dr;
+            for (i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                strsql = "Select DName from Drugs where Did=" + ds.Tables[0].Rows[i][0];
+                dr = data.GetDataset(strsql);
+                if (dr.Tables[0].Rows.Count == 0)
+                {
+                    content += "已删除的药品" + "  X" + ds.Tables[0].Rows[i][1] + "\r\n";
+                }
+                else
+                {
+                    content += dr.Tables[0].Rows[0][0] + "  X" + ds.Tables[0].Rows[i][1] + "\r\n";
+                }
+            }
+            //通过PID去寻找医嘱
+            strsql = "Select PRemarks from Prescription where Pid=" + pid;
+            dr = data.GetDataset(strsql);
+            content += "\r\n医嘱：" + dr.Tables[0].Rows[0][0].ToString();
+            MessageBox.Show(content);
         }
 
         private void button2_Click_1(object sender, EventArgs e)

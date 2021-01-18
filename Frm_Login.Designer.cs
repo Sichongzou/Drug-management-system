@@ -29,6 +29,7 @@ namespace Drug_management_system
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Login));
             this.Button1 = new Sunny.UI.UIButton();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.txt_userName = new Sunny.UI.UITextBox();
@@ -126,8 +127,10 @@ namespace Drug_management_system
             this.Controls.Add(this.uiLabel1);
             this.Controls.Add(this.Button1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(94)))));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_Login";
             this.Text = "登录信息";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Login_FormClosing);
             this.Load += new System.EventHandler(this.Frm_Login_Load);
             this.ResumeLayout(false);
 

@@ -21,4 +21,3 @@ H:\Drug management system\Drug management system\obj\Debug\Drug management syste
 H:\Drug management system\Drug management system\obj\Debug\Drug management system.csproj.CopyComplete
 H:\Drug management system\Drug management system\obj\Debug\Drug management system.exe
 H:\Drug management system\Drug management system\obj\Debug\Drug management system.pdb
-H:\Drug management system\Drug management system\obj\Debug\Drug management system.csprojAssemblyReference.cache

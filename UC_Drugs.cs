@@ -27,7 +27,7 @@ namespace Drug_management_system
             string strsql;
             DataAccess data = new DataAccess();
             DataSet ds;
-            strsql = "select SName AS 供货商名称,DName AS 药品名称 from Supplier,Drugs where Supplier.SID=Drugs.SID order by SName";
+            strsql = "select SName AS 供货商名称,DName AS 药品名称,DStock AS 药品库存 from Supplier,Drugs where Supplier.SID=Drugs.SID order by SName";
             data.Datacon();
             ds = data.GetDataset(strsql);
             string sname = "";
@@ -210,6 +210,14 @@ namespace Drug_management_system
             else {
                 MessageBox.Show("不能出现空的数据！");
             }
+            //刷新
+            btn_add.Enabled = false;
+            findAllDrugsByTree();
+            txt_dName.Text = "";
+            txt_dCost.Text = "";
+            txt_dExplain.Text = "";
+            txt_dPrice.Text = "";
+            txt_dStock.Text = "";
         }
 
         private void btn_del_Click(object sender, EventArgs e)
@@ -227,6 +235,16 @@ namespace Drug_management_system
                 }
                 else { txt_log.Text += DateTime.Now.ToString() + " :未能成功删除数据\r\n"; }
             }
+            //刷新
+            findAllDrugsByTree();
+            lbl_dName.Text = "";
+            lbl_dExplain.Text = "";
+            lbl_sName.Text = "";
+            lbl_dCost.Text = "";
+            lbl_dPrice.Text = "";
+            lbl_dSold.Text = "";
+            lbl_Dstok.Text = "";
+            lbl_profit.Text = "";
         }
 
         private void txt_addStork_TextChanged(object sender, EventArgs e)
@@ -300,6 +318,8 @@ namespace Drug_management_system
             drugs.DPrice =Convert.ToSingle(txt_reDPrice.Text);
             drugs.DCost = Convert.ToSingle(txt_reCost.Text);
             tabControl1_Click(sender,e);
+            //刷新树状图
+            findAllDrugsByTree();
         }
 
         private void cbo_addStock_SelectedIndexChanged(object sender, EventArgs e)

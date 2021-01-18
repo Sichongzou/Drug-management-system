@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace Drug_management_system
         public string userName;
         public string userPower;
         public Frm_Login frm_Login;
+        public string wid;
         public Frm_Main()
         {
             InitializeComponent();
@@ -29,13 +31,26 @@ namespace Drug_management_system
             if (userPower == "医师")
             {
                 btn_toAddPrescription.Visible = true;
+                btn_toAddPrescription.Left = groupBox1.Width/2 - btn_toSupplier.Width/2;
+                uiLabel5.Left = groupBox1.Width / 2 - btn_toSupplier.Width / 2+ btn_toSupplier.Width/2- uiLabel5.Width/2;
                 uiLabel5.Visible = true;
-                return;
+                return; 
             }
             btn_toDrugs.Visible = true;
             btn_toPrescription.Visible = true;
             btn_toSupplier.Visible = true;
             btn_toWorkers.Visible = true;
+            btn_toSupplier.Left = (groupBox1.Width- btn_toSupplier.Width*4)/5*1;
+            btn_toDrugs.Left= (groupBox1.Width - btn_toSupplier.Width * 4) / 5 * 2+ btn_toSupplier.Width;
+            btn_toPrescription.Left = (groupBox1.Width - btn_toSupplier.Width * 4) / 5 * 3+ btn_toSupplier.Width+ btn_toSupplier.Width;
+            btn_toWorkers.Left = (groupBox1.Width - btn_toSupplier.Width * 4) / 5 * 4+ btn_toSupplier.Width+ btn_toSupplier.Width+ btn_toSupplier.Width;
+            
+            uiLabel2.Left = (groupBox1.Width - btn_toSupplier.Width * 4) / 5 * 1+ btn_toSupplier.Width / 2 - uiLabel4.Width/2;
+            uiLabel3.Left = (groupBox1.Width - btn_toSupplier.Width * 4) / 5 * 2 + btn_toSupplier.Width + btn_toSupplier.Width / 2 - uiLabel1.Width / 2;
+            uiLabel4.Left = (groupBox1.Width - btn_toSupplier.Width * 4) / 5 * 3 + btn_toSupplier.Width + btn_toSupplier.Width + btn_toSupplier.Width / 2 - uiLabel2.Width / 2;
+            uiLabel1.Left = (groupBox1.Width - btn_toSupplier.Width * 4) / 5 * 4 + btn_toSupplier.Width + btn_toSupplier.Width + btn_toSupplier.Width + btn_toSupplier.Width / 2 - uiLabel3.Width / 2;
+
+
             uiLabel1.Visible = true;
             uiLabel2.Visible = true;
             uiLabel3.Visible = true;
@@ -59,6 +74,7 @@ namespace Drug_management_system
             uiLabel4.Visible = false;
 
         }
+       
         private void Frm_Admin_Load(object sender, EventArgs e)
         {
             lbl_userName.Text = userName;
@@ -117,6 +133,7 @@ namespace Drug_management_system
         {
             Control_hide();
             uc_AddPrescription = new UC_AddPrescription();
+            uc_AddPrescription.wid = wid;
             uc_AddPrescription.Width = groupBox1.Width;
             uc_AddPrescription.Height = groupBox1.Height;
             groupBox1.Controls.Add(uc_AddPrescription);
@@ -136,6 +153,16 @@ namespace Drug_management_system
         private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            while (this.Opacity > 0)
+            {
+                this.Opacity -= 0.02;
+                Thread.Sleep(20);
+            }
+            Application.Exit();
         }
     }
 }

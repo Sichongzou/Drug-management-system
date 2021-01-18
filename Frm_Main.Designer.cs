@@ -59,7 +59,7 @@
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1517, 142);
+            this.menuStrip2.Size = new System.Drawing.Size(1517, 65535);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
@@ -69,7 +69,7 @@
             this.btn_returnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_returnMain.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_returnMain.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_returnMain.Location = new System.Drawing.Point(1070, 76);
+            this.btn_returnMain.Location = new System.Drawing.Point(1071, 93);
             this.btn_returnMain.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_returnMain.Name = "btn_returnMain";
             this.btn_returnMain.Radius = 0;
@@ -83,7 +83,7 @@
             this.btn_logOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_logOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_logOut.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_logOut.Location = new System.Drawing.Point(1219, 76);
+            this.btn_logOut.Location = new System.Drawing.Point(1257, 93);
             this.btn_logOut.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_logOut.Name = "btn_logOut";
             this.btn_logOut.Radius = 0;
@@ -98,7 +98,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label1.Location = new System.Drawing.Point(1176, 11);
+            this.label1.Location = new System.Drawing.Point(1090, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 27);
             this.label1.TabIndex = 5;
@@ -111,7 +111,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label2.Location = new System.Drawing.Point(1176, 39);
+            this.label2.Location = new System.Drawing.Point(1090, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 27);
             this.label2.TabIndex = 6;
@@ -120,11 +120,12 @@
             // 
             // uiLabel5
             // 
+            this.uiLabel5.AutoSize = true;
             this.uiLabel5.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel5.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiLabel5.Location = new System.Drawing.Point(696, 423);
             this.uiLabel5.Name = "uiLabel5";
-            this.uiLabel5.Size = new System.Drawing.Size(100, 26);
+            this.uiLabel5.Size = new System.Drawing.Size(92, 27);
             this.uiLabel5.TabIndex = 10;
             this.uiLabel5.Text = "新建处方";
             this.uiLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -132,11 +133,12 @@
             // 
             // uiLabel4
             // 
+            this.uiLabel4.AutoSize = true;
             this.uiLabel4.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel4.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiLabel4.Location = new System.Drawing.Point(853, 423);
             this.uiLabel4.Name = "uiLabel4";
-            this.uiLabel4.Size = new System.Drawing.Size(100, 26);
+            this.uiLabel4.Size = new System.Drawing.Size(92, 27);
             this.uiLabel4.TabIndex = 9;
             this.uiLabel4.Text = "处方查询";
             this.uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -144,11 +146,12 @@
             // 
             // uiLabel3
             // 
+            this.uiLabel3.AutoSize = true;
             this.uiLabel3.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel3.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiLabel3.Location = new System.Drawing.Point(548, 423);
             this.uiLabel3.Name = "uiLabel3";
-            this.uiLabel3.Size = new System.Drawing.Size(100, 26);
+            this.uiLabel3.Size = new System.Drawing.Size(92, 27);
             this.uiLabel3.TabIndex = 8;
             this.uiLabel3.Text = "药品管理";
             this.uiLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -156,11 +159,12 @@
             // 
             // uiLabel2
             // 
+            this.uiLabel2.AutoSize = true;
             this.uiLabel2.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiLabel2.Location = new System.Drawing.Point(260, 423);
             this.uiLabel2.Name = "uiLabel2";
-            this.uiLabel2.Size = new System.Drawing.Size(117, 26);
+            this.uiLabel2.Size = new System.Drawing.Size(112, 27);
             this.uiLabel2.TabIndex = 7;
             this.uiLabel2.Text = "供货商管理";
             this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -225,25 +229,25 @@
             // lbl_userPower
             // 
             this.lbl_userPower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_userPower.AutoSize = true;
             this.lbl_userPower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
             this.lbl_userPower.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.lbl_userPower.Location = new System.Drawing.Point(1321, 39);
+            this.lbl_userPower.Location = new System.Drawing.Point(1208, 49);
             this.lbl_userPower.Name = "lbl_userPower";
-            this.lbl_userPower.Size = new System.Drawing.Size(0, 27);
+            this.lbl_userPower.Size = new System.Drawing.Size(132, 27);
             this.lbl_userPower.TabIndex = 22;
+            this.lbl_userPower.Text = "UserPower";
             this.lbl_userPower.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbl_userName
             // 
             this.lbl_userName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_userName.AutoSize = true;
             this.lbl_userName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(255)))));
             this.lbl_userName.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.lbl_userName.Location = new System.Drawing.Point(1321, 11);
+            this.lbl_userName.Location = new System.Drawing.Point(1208, 17);
             this.lbl_userName.Name = "lbl_userName";
-            this.lbl_userName.Size = new System.Drawing.Size(0, 27);
+            this.lbl_userName.Size = new System.Drawing.Size(114, 27);
             this.lbl_userName.TabIndex = 21;
+            this.lbl_userName.Text = "UserName";
             this.lbl_userName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btn_toWorkers
@@ -262,11 +266,12 @@
             // 
             // uiLabel1
             // 
+            this.uiLabel1.AutoSize = true;
             this.uiLabel1.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiLabel1.Location = new System.Drawing.Point(1152, 423);
             this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(100, 26);
+            this.uiLabel1.Size = new System.Drawing.Size(92, 27);
             this.uiLabel1.TabIndex = 6;
             this.uiLabel1.Text = "职工管理";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -288,16 +293,16 @@
             this.groupBox1.Controls.Add(this.btn_toWorkers);
             this.groupBox1.Controls.Add(this.btn_toSupplier);
             this.groupBox1.Controls.Add(this.btn_toDrugs);
-            this.groupBox1.Location = new System.Drawing.Point(0, 145);
+            this.groupBox1.Location = new System.Drawing.Point(0, 156);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1516, 661);
+            this.groupBox1.Size = new System.Drawing.Size(1517, 648);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(59, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(48, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(365, 89);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -318,12 +323,15 @@
             this.Controls.Add(this.btn_logOut);
             this.Controls.Add(this.btn_returnMain);
             this.Controls.Add(this.menuStrip2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "Frm_Main";
-            this.Text = "Frm_Admin";
+            this.Text = "主页面";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Main_FormClosing);
             this.Load += new System.EventHandler(this.Frm_Admin_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

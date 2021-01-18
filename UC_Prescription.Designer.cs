@@ -43,6 +43,7 @@ namespace Drug_management_system
             this.label3 = new Sunny.UI.UILabel();
             this.label1 = new Sunny.UI.UILabel();
             this.dataGridView1 = new Sunny.UI.UIDataGridView();
+            this.uiButton1 = new Sunny.UI.UIButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -173,6 +174,10 @@ namespace Drug_management_system
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -204,22 +209,37 @@ namespace Drug_management_system
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.dataGridView1.Location = new System.Drawing.Point(62, 308);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.SelectedIndex = -1;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowGridLine = true;
             this.dataGridView1.Size = new System.Drawing.Size(1254, 230);
             this.dataGridView1.Style = Sunny.UI.UIStyle.Custom;
             this.dataGridView1.TabIndex = 1;
+            // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiButton1.Location = new System.Drawing.Point(1115, 559);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(188, 42);
+            this.uiButton1.TabIndex = 10;
+            this.uiButton1.Text = "查询所选处方内容";
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
             // UC_Prescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.uiButton1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "UC_Prescription";
@@ -243,5 +263,6 @@ namespace Drug_management_system
         private Sunny.UI.UITextBox txt_cName;
         private Sunny.UI.UIDataGridView dataGridView1;
         private Sunny.UI.UILabel label2;
+        private Sunny.UI.UIButton uiButton1;
     }
 }

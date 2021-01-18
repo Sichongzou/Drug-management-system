@@ -59,6 +59,8 @@ namespace Drug_management_system
                         txt_sDirector.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
                         txt_sPhone.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
                         txt_sAddress.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                        btn_revise.Enabled = true;
+                        btn_del.Enabled = true;
                     }
                 }
             }
@@ -98,10 +100,7 @@ namespace Drug_management_system
 
         private void txt_sName_TextChanged(object sender, EventArgs e)
         {
-            if (txt_sName.ReadOnly == true) {
-                btn_revise.Enabled = true;
-                btn_del.Enabled = true;
-            }
+           
         }
 
         private void btn_revise_Click(object sender, EventArgs e)
@@ -170,6 +169,7 @@ namespace Drug_management_system
                     txt_sAddress.Text = "";
                     txt_sPhone.Text = "";
                     btn_save.Enabled = false;
+                    findAll();
                 }
             }
             else
@@ -202,6 +202,7 @@ namespace Drug_management_system
                     btn_del.Enabled = false;
                     btn_revise.Enabled = false;
                     btn_save.Enabled = false;
+                    findAll();
                 }
             }
         }
@@ -218,9 +219,17 @@ namespace Drug_management_system
                     txt_log.Text += DateTime.Now.ToString() + " :删除数据成功\r\n";
                 }
                 else { txt_log.Text += DateTime.Now.ToString() + " :未能成功删除数据\r\n"; }
+                txt_sName.Text = "";
+                txt_sDirector.Text = "";
+                txt_sPhone.Text = "";
+                txt_sAddress.Text = "";
+                findAll();
             }
         }
 
-        
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

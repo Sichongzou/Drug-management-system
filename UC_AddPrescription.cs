@@ -15,7 +15,7 @@ namespace Drug_management_system
 {
     public partial class UC_AddPrescription : UserControl
     {
-        string wid = "1";
+        public string wid = "1";
         //使用ArrayList存储药品信息，避免过多访问数据库
         ArrayList drugs = new ArrayList();
         public UC_AddPrescription()
@@ -186,6 +186,8 @@ namespace Drug_management_system
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Single money=0;
+            string message="生成处方如下：\r\n";
             //前置条件
             if (txt_cName.Text == "" || txt_cPhone.Text == "" || txt_cAge.Text == "" || cbo_cSex.Text == "")
             {
@@ -219,6 +221,7 @@ namespace Drug_management_system
                 //查询到客户信息取出CID
                 cid = ds.Tables[0].Rows[0][0].ToString();
             }
+            message += "客户姓名：" + txt_cName.Text + ",性别：" + cbo_cSex.Text + "\r\n" + "年龄：" + txt_cAge.Text + ",联系方式：" + txt_cPhone.Text + "\r\n\r\n";
             //构造当前日期
             string date;
             date = "" + DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "";
@@ -235,7 +238,11 @@ namespace Drug_management_system
                 data.SqlExec(strsql);
                 strsql = "Update  Drugs Set  DStock= Dstock-" + dataGridView1.Rows[i].Cells[3].Value.ToString() +" Where DID="+dataGridView1.Rows[i].Cells[0].Value.ToString();
                 data.SqlExec(strsql);
+                message+= dataGridView1.Rows[i].Cells[1].Value.ToString()+" X "+dataGridView1.Rows[i].Cells[3].Value.ToString()+"\r\n";
+                money += Convert.ToSingle(dataGridView1.Rows[i].Cells[5].Value.ToString());
              }
+            money = (Single)Math.Round(money, 2);
+            message += "\r\n总金额：" + money;
             //刷新整个页面
             LoadAll();
             lbl_dPrice.Text = "单价:  " ;
@@ -246,9 +253,10 @@ namespace Drug_management_system
             cbo_cSex.Text = "";
             txt_cPhone.Text = "";
             dataGridView1.Rows.Clear();
-            dataGridView2.Rows.Clear();
+            dataGridView2.DataSource=null;
             txt_dNumber.Text = "";
             txt_PRemarks.Text = "";
+            MessageBox.Show(message);
         }
     }
 }

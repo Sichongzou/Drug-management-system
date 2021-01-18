@@ -63,5 +63,49 @@ namespace Drug_management_system
         {
            
         }
+
+        private void uiButton1_Click(object sender, EventArgs e)
+        {
+            int i;
+            string pid="";
+            for (i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (dataGridView1.Rows[i].Selected)
+                {
+                    pid = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                    break;
+                }
+            }
+            if (i == dataGridView1.Rows.Count) {
+                MessageBox.Show("当前未选中行，请先选中行！");
+                return;
+            }
+            string strsql,content;
+            DataAccess data = new DataAccess();
+            data.Datacon();
+            DataSet ds;
+            content = "此处方包含内容如下：\r\n";
+            //查询处方内容表中的所有PID订单
+            strsql = "Select DID,PcNumber from Prescription_content where pid=" + pid;
+            ds = data.GetDataset(strsql);
+            //通过DID去药品表中寻找药品名称 对应数量构造字符串
+            DataSet dr;
+            for (i = 0; i < ds.Tables[0].Rows.Count; i++) {
+                strsql = "Select DName from Drugs where Did=" + ds.Tables[0].Rows[i][0];
+                dr = data.GetDataset(strsql);
+                if (dr.Tables[0].Rows.Count == 0)
+                {
+                    content += "已删除的药品" + "  X" + ds.Tables[0].Rows[i][1]+ "\r\n";
+                }
+                else {
+                    content += dr.Tables[0].Rows[0][0] + "  X" + ds.Tables[0].Rows[i][1]+ "\r\n";
+                }
+            }
+            //通过PID去寻找医嘱
+            strsql = "Select PRemarks from Prescription where Pid=" + pid;
+            dr = data.GetDataset(strsql);
+            content += "\r\n医嘱：" + dr.Tables[0].Rows[0][0].ToString();
+            MessageBox.Show(content);
+        }
     }
 }

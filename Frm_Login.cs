@@ -7,6 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
+using System.Runtime.InteropServices;
+using System.Reflection;
+using System.IO;
+using System.Threading;
+
 namespace Drug_management_system
 {
     public partial class Frm_Login : Form
@@ -37,6 +43,11 @@ namespace Drug_management_system
 
         private void Button2_Click_1(object sender, EventArgs e)
         {
+            while (this.Opacity > 0)
+            {
+                this.Opacity -= 0.02;
+                Thread.Sleep(20);
+            }
             Application.Exit();
         }
 
@@ -69,12 +80,25 @@ namespace Drug_management_system
             else
             {
                 frm_Main.userPower = "医师";
+                strsql = "select wid From Workers Where UserName='" + txt_userName.Text + "'";
+                ds = data.GetDataset(strsql);
+                frm_Main.wid = ds.Tables[0].Rows[0][0].ToString();
             }
             frm_Main.frm_Login = this;
             frm_Main.Show();
             txt_userName.Text = "";
             txt_userPassword.Text = "";
             this.Hide();
+        }
+
+        private void Frm_Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            while (this.Opacity > 0)
+            {
+                this.Opacity -= 0.02;
+                Thread.Sleep(20);
+            }
+            Application.Exit();
         }
     }
 }
